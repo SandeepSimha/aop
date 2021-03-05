@@ -1,0 +1,142 @@
+buildscript {
+    ext {
+        currentMarketName = ""
+        // build
+        gradleVer = "3.6.4"
+        newrelic = "5.28.1"
+        unmock = "0.6.3"
+        apptentive = "5.6.0"
+        optimizely = "3.3.0"
+
+        packageName = "com.mcdonalds.app.qa"
+        applicationId = "com.mcdonalds.app"
+        minSdk = 21
+        targetSdk = 30
+        compileSdk = 30
+        versionCode = 786
+        buildTools = "30.0.2"
+        valueAccountType = packageName + '.account'
+        valueContentAuthority = packageName + '.authority'
+
+        //DatabaseVersion
+        databaseVersion = 14
+
+        // Semantic Versioning
+        Major = 6
+        Minor = 14
+        Patch = 0
+        base = "${Major}.${Minor}.${Patch}"
+
+        // Check before release, add/remove languages separated by `comma` Refer https://goo.gl/laaaQm
+        languagesSupported = "en, es, en-rUS, es-rUS, en-rAU, en-rCA, fr-rCA"
+        // dependencies
+        mcdsdk = "12.0.35"
+        support = "1.1.0"
+        playServices = "17.0.0"
+        google_places = "2.1.0"
+        okhttp = "4.4.0"
+        stetho = "1.5.1"
+        multidex = "2.0.1"
+        recyclerview = "1.0.0"
+        cardview = "1.0.0"
+        lifecycle_extensions = "2.1.0"
+        lifecycle_common_java8 = "2.1.0"
+        legacy_support = "1.0.0"
+        media = "1.0.0"
+        annotation = "1.1.0"
+        testRunner = "1.1.0"
+        constraint_layout = "1.1.3"
+        material = "1.0.0"
+        jacoco = "0.8.5"
+        jacocoToolVersion = "0.8.4"
+        mockito = "3.1.0"
+        mockito_all = "1.10.19"
+        powermock = "2.0.2"
+        json = "20140107"
+        facebook = "7.1.0"
+        junit = "4.12"
+        gson = "2.8.6"
+        mParticle = "5.15.1"
+        hamcrest = "2.1"
+        volley = "1.1.1"
+        stethoRealm = "2.3.0"
+        analytics = "17.0.0"
+        firebaseCore = "17.2.1"
+        firebaseFunctions = "19.0.1"
+        firebaseFunctionsDatabase = "19.2.0"
+        firebaseFunctionsAuth = "19.2.0"
+        firebaseMessaging = "20.1.0"
+        googleServices = "4.3.3"
+        constrainlayout = "1.1.3"
+        navigation = "2.2.1"
+        lottie = "3.3.0"
+        uber_sdk = "0.10.1"
+        adobe_campaign_version = "1.0.3"
+        adobe_mobilecore_version = "1.5.0"
+        adobe_userprofile_version = "1.1.0"
+        archcoretest = "1.1.1"
+        adyenComponentVersion = "3.6.6"
+        adyenThreeDs2Version = "3.6.6"
+        braintreeSDKVersion = "3.14.2"
+        siftSDKVersion = "0.10.5"
+
+        dagger2 = "2.24"
+        kotlin_version = '1.3.50'
+        annotation = "1.1.0"
+        runner = "1.2.0"
+        okio = "2.4.3"
+        zxing_core = "3.4.0"
+        facebookShimmer = "0.5.0"
+        glide = "4.10.0"
+        viewpump = "2.0.3"
+        play_services_vision = "20.1.0"
+
+        // for config downloader script
+        DOWNLOAD_NONE = "-1" // no config file will be downloaded.
+        DOWNLOAD_MARKET_ONLY = "0" // only markets_config.json will be downloaded.
+        DOWNLOAD_ALL = "1" // markets_config.json as well as all additional configs for a market, i.e.
+        // sdk, version and server config will also be downloaded.
+        DOWNLOAD_ADDITIONAL_ONLY = "2" // only additional configs for a market, i.e.
+        // sdk, version and server config will be downloaded.
+        OVERWRITE = "2" // sdk, version and server configs, stored locally, will be
+        // overwritten with downloaded content.
+        NO_OVERWRITE = "1" // sdk, version and server configs, stored locally, will NOT be overwritten
+        // with downloaded content. However, the downloaded content would still be available for SDK
+        // (inside clubbed file in 'bundled-config' folder)in case it needs to fallback.
+
+
+        //geofence log
+        geofenceLog = false
+        artifactUrl = "${System.env.ARTIFACTORY_URL}"
+        if (artifactUrl == "${null}" || artifactUrl.isEmpty()) {
+            artifactUrl = 'http://artifactrepository.mcd.com:8081/artifactory/'
+        }
+        println artifactUrl
+        google_services = "4.2.0"
+    }
+}
+
+allprojects {
+    repositories {
+        google()
+        jcenter()
+        mavenCentral()
+        mavenLocal()
+        maven {
+            url "https://plugins.gradle.org/m2/"
+        }
+    }
+
+   /* compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }*/
+}
+
+/*
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}*/

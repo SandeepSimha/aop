@@ -1,0 +1,31 @@
+pluginManagement {
+    resolutionStrategy {
+        eachPlugin {
+            /*if (requested.id.id == "com.android.application") {
+                useModule("com.android.tools.build:gradle:4.1.0")
+                useModule("org.jetbrains.kotlin:kotlin-gradle-plugin:1.4.10")
+
+            }
+            if (requested.id.id == "com.ibotta.gradle.aop") {
+                useModule("com.ibotta.gradle.aop:com.ibotta.gradle.aop.gradle.plugin:1.1.0")
+            }*/
+
+            useModule("com.android.tools.build:gradle:4.1.0")
+            useModule("org.jetbrains.kotlin:kotlin-gradle-plugin:1.4.10")
+            useModule("com.ibotta.gradle.aop:com.ibotta.gradle.aop.gradle.plugin:1.1.0")
+        }
+    }
+    repositories {
+        gradlePluginPortal()
+        google()
+        mavenCentral()
+        mavenLocal()
+        jcenter()
+        maven {
+            url "https://plugins.gradle.org/m2/"
+        }
+    }
+}
+
+include ':app'
+rootProject.name = "My Application"
